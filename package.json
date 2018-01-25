@@ -6,7 +6,7 @@
   "bin": {
     "react-app-scripts": "./bin/react-app-scripts"
   },
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^2.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
