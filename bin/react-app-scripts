@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-ENV=./node_modules/react-app-env
-
-cat $ENV/package.json
+export ENV=./node_modules/react-app-env
 
 echo "Running $1 script...";
+
+sh $ENV/scripts/$1.sh
