@@ -4,10 +4,7 @@
   "description": "React starter",
   "main": "index.js",
   "bin": {
-    "react-app-scripts": "./bin/react-app-scripts.js"
-  },
-  "scripts": {
-    "start": "react-app-scripts start"
+    "react-app-scripts": "./bin/dev-server"
   },
   "dependencies": {
     "chalk": "^2.3.0",
