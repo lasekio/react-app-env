@@ -3,3 +3,5 @@
 ENV=./node_modules/react-app-env
 
 cat $ENV/package.json
+
+echo "Running $1 script...";
