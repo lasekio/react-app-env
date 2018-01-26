@@ -17,8 +17,8 @@ const App = require(_REACT_ENV_APP_ENTRYPOINT).default;
 render(App);
 
 if (module.hot) {
+    console.log('accepting..', entry);
     module.hot.accept(entry, () => {
-        const App = require(_REACT_ENV_APP_ENTRYPOINT).default;
         render(App)
     })
 }

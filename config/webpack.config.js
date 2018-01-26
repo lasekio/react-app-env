@@ -28,15 +28,12 @@ if (dllEnabled) {
     }));
 }
 
-const entrypoint = path.resolve(process.cwd(), packageInfo.main);
-
 module.exports = {
     devtool: 'inline-source-map',
     cache: true,
     entry: {
         app: [
             'react-hot-loader/patch',
-            // entrypoint,
             path.resolve(__dirname, '../src/index.js')
         ],
     },
@@ -52,7 +49,7 @@ module.exports = {
             fullBuildTimeout: -1,
         }),
         new webpack.DefinePlugin({
-            _REACT_ENV_APP_ENTRYPOINT: JSON.stringify(entrypoint),
+            _REACT_ENV_APP_ENTRYPOINT: JSON.stringify(packageInfo.main),
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
