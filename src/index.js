@@ -18,7 +18,5 @@ render(App);
 
 if (module.hot) {
     console.log('accepting..', entry);
-    module.hot.accept(entry, () => {
-        render(App)
-    })
+    module.hot.accept()
 }
