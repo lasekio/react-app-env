@@ -1,28 +1,31 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
-const DLLmanifest = require(path.join(__dirname, 'dist', 'vendors-manifest.json'));
+const DLLmanifest = require(path.join(process.cwd(), 'dist', 'vendors-manifest.json'));
 
 const dllEnabled = process.env.DLL_ENABLED === undefined ? true : process.env.DLL_ENABLED !== '0';
+const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
 let plugins = [];
 
-if (process.env.UNDLERSIS_WEBPACK_RENDER_HTML) {
+if (process.env.REACT_APP_ENV_WEBPACK_RENDER_HTML) {
     plugins = [
-        new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src/index.html.ejs'), cache: false }),
-        dllEnabled && new AddAssetHtmlPlugin({ filepath: path.join(__dirname, 'dist', '*.dll.js'), includeSourcemap: false }),
+        new HtmlWebpackPlugin({ template: path.resolve(__dirname, '../src/index.html.ejs'), cache: false }),
+        dllEnabled && new AddAssetHtmlPlugin({ filepath: path.join(process.cwd(), 'dist', '*.dll.js'), includeSourcemap: false }),
         new AddAssetHtmlPlugin(
-            { filepath: path.join(__dirname, 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
+            { filepath: path.join(process.cwd(), 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
             ),
     ]
 }
 
 if (dllEnabled) {
     plugins.push(new webpack.DllReferencePlugin({
-        context: path.join( __dirname ),
+        context: path.join( process.cwd() ),
         manifest: DLLmanifest,
     }));
 }
@@ -33,12 +36,12 @@ module.exports = {
     entry: {
         app: [
             'react-hot-loader/patch',
-            './src/index.js',
+            path.resolve(process.cwd(), packageInfo.main)
         ],
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(process.cwd(), 'dist'),
         publicPath: '/'
     },
     plugins: [
@@ -49,10 +52,7 @@ module.exports = {
         }),
 
         new webpack.NamedModulesPlugin(),
-        // prints more readable module names in the browser console on HMR updates
-
         new webpack.NoEmitOnErrorsPlugin(),
-        // do not emit compiled assets that include errors
     ],
     devServer: {
         hot: true,

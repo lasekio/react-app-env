@@ -8,13 +8,21 @@
   },
   "dependencies": {
     "chalk": "^2.3.0",
+    "add-asset-html-webpack-plugin": "^2.1.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",
-    "babel-loader": "^7.1.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
-    "webpack-hot-middleware": "^2.19.1"
+    "webpack-hot-middleware": "^2.19.1",
+    "html-webpack-plugin": "^2.30.1",
+    "extract-text-webpack-plugin": "^3.0.0"
   },
   "author": "",
   "license": "ISC"

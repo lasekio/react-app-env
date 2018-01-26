@@ -7,9 +7,6 @@ const customVendors = [];
 module.exports = {
     devtool: 'none',
     entry: {
-        styles: [
-            'semantic-ui-css/semantic.min.css',
-        ],
         vendors: [
             'webpack/hot/only-dev-server',
             'webpack-dev-server/client?http://localhost:8080',
@@ -21,13 +18,13 @@ module.exports = {
     output: {
         filename: '[name]_[hash].dll.js',
         library: '[name]_[hash]',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(process.cwd(), 'dist'),
         hotUpdateChunkFilename: 'hot/hot-update.js',
         hotUpdateMainFilename: 'hot/hot-update.json'
     },
     plugins: [
         new webpack.DllPlugin({
-            path: path.join(__dirname, "dist", "[name]-manifest.json"),
+            path: path.join(process.cwd(), "dist", "[name]-manifest.json"),
             name: "[name]_[hash]"
         }),
         new ExtractTextPlugin("[name]_[hash].css"),
