@@ -17,9 +17,7 @@ if (process.env.REACT_APP_ENV_WEBPACK_RENDER_HTML) {
     plugins = [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, '../src/index.html.ejs'), cache: false }),
         dllEnabled && new AddAssetHtmlPlugin({ filepath: path.join(process.cwd(), 'dist', '*.dll.js'), includeSourcemap: false }),
-        new AddAssetHtmlPlugin(
-            { filepath: path.join(process.cwd(), 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
-            ),
+        new AddAssetHtmlPlugin({filepath: path.join(process.cwd(), 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }),
     ]
 }
 
@@ -30,13 +28,16 @@ if (dllEnabled) {
     }));
 }
 
+const entrypoint = path.resolve(process.cwd(), packageInfo.main);
+
 module.exports = {
     devtool: 'inline-source-map',
     cache: true,
     entry: {
         app: [
             'react-hot-loader/patch',
-            path.resolve(process.cwd(), packageInfo.main)
+            // entrypoint,
+            path.resolve(__dirname, '../src/index.js')
         ],
     },
     output: {
@@ -50,7 +51,9 @@ module.exports = {
             multiStep: true,
             fullBuildTimeout: -1,
         }),
-
+        new webpack.DefinePlugin({
+            _REACT_ENV_APP_ENTRYPOINT: JSON.stringify(entrypoint),
+        }),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
     ],
