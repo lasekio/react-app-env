@@ -78,5 +78,5 @@ module.exports = {
             }
         ],
     },
-    resolve: { modules: [ process.cwd() ]},
+    resolve: { modules: [ process.cwd(), 'node_modules' ]},
 };
