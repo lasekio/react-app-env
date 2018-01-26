@@ -5,9 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 const render = Component => {
     ReactDOM.render(
         <AppContainer>
-            {/*<Provider store={appStore}>*/}
-                <Component />
-            {/*</Provider>*/}
+            <Component />
         </AppContainer>,
         document.getElementById('main')
     )
