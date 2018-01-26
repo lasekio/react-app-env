@@ -66,7 +66,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules/[^react-app-env])/,
+                exclude: /(node_modules\/[^react\-app\-env])/,
                 use: [{
                     loader: 'babel-loader',
                     options: {
