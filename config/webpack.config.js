@@ -42,6 +42,7 @@ module.exports = {
         path: path.resolve(process.cwd(), 'dist'),
         publicPath: '/'
     },
+    mnodules: [process.cwd()],
     plugins: [
         ...plugins,
         new webpack.HotModuleReplacementPlugin({
