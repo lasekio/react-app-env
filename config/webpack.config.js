@@ -79,6 +79,7 @@ module.exports = {
                     }
                 }]
             }
-        ]
+        ],
+        resolve: { modules: [ process.cwd() ]},
     }
 };
