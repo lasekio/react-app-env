@@ -2,19 +2,21 @@ const path = require('path');
 const webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const customVendors = [];
+const packageInfo = require(path.join(process.cwd(), 'package.json'));
+
+const customVendors = packageInfo.reactAppConfig && packageInfo.reactAppConfig.vendors || [];
 
 module.exports = {
-    devtool: 'none',
+    devtool: 'inline-source-map',
     entry: {
-        vendors: [
+        vendors: Array.from(new Set([ // Unique
             'webpack/hot/only-dev-server',
             'webpack-dev-server/client?http://localhost:8080',
             'react-dom',
             'react-hot-loader',
             'react',
             ...customVendors,
-        ]
+        ])),
     },
     output: {
         filename: '[name]_[hash].dll.js',

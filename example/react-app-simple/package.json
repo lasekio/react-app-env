@@ -1,0 +1,10 @@
+{
+  "main": "App.js",
+  "scripts": {
+    "start": "react-app-scripts start",
+    "dev-server": "react-app-scripts dev-server"
+  },
+  "devDependencies": {
+    "react-app-env": "lasekio/react-app-env#master"
+  }
+}
