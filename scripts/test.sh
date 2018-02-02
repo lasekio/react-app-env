@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-jest
+BABELRC_FILENAME=$ENV/.babelrc jest
