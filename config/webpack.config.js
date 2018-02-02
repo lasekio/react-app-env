@@ -69,6 +69,7 @@ module.exports = {
                     options: {
                         plugins: [
                             "transform-react-jsx",
+                            "syntax-async-functions",
                             "react-hot-loader/babel",
                             "transform-object-rest-spread",
                             ["transform-class-properties", { "spec": true }]

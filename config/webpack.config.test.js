@@ -18,6 +18,7 @@ module.exports = {
                         presets: ['env'],
                         plugins: [
                             "transform-react-jsx",
+                            "syntax-async-functions",
                             "transform-object-rest-spread",
                             ["transform-class-properties", { "spec": true }]
                         ]
