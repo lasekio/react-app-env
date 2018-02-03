@@ -62,6 +62,17 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                }),
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/,
+                use: ['file-loader']
+            },
+            {
                 test: /\.js$/,
                 exclude: /(node_modules\/[^react\-app\-env])/,
                 use: [{
