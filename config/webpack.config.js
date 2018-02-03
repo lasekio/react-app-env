@@ -63,10 +63,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["style-loader", "css-loader"]
-                }),
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/,
