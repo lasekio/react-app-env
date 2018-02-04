@@ -22,7 +22,6 @@ plugins = [
 
 module.exports = {
     entry: {
-        vendors,
         app: [path.resolve(__dirname, '../src/index.js')],
     },
     output: {

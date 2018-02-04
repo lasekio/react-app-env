@@ -1,4 +1,4 @@
-const path = require('path');
+lsconst path = require('path');
 
 const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
