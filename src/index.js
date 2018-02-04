@@ -18,5 +18,5 @@ render();
 if (module.hot) {
     const entry = _REACT_ENV_APP_ENTRYPOINT;
     console.log('accepting', entry);
-    module.hot.accept(entry, () => { render() })
+    module.hot.accept('./' . entry, () => { render() })
 }
