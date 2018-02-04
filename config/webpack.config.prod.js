@@ -8,18 +8,15 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 let plugins = [];
 
 plugins = [
-    new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src/index.html.ejs'), cache: false }),
+    new HtmlWebpackPlugin({ template: path.resolve(__dirname, '../src/index.html.ejs'), cache: false }),
     new AddAssetHtmlPlugin(
-        { filepath: path.join(__dirname, 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
+        { filepath: path.join(process.cwd(), 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
     ),
     new ExtractTextPlugin("[name]_[hash].css"),
 ];
 
 module.exports = {
     entry: {
-        styles: [
-            'semantic-ui-css/semantic.min.css',
-        ],
         app: './src/index.js',
     },
     output: {
