@@ -26,7 +26,7 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(process.cwd(), 'dist'),
-        publicPath: '/'
+        publicPath: '/public/'
     },
     resolve: { modules: [ process.cwd(), 'node_modules' ]},
     plugins: plugins,

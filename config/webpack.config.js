@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
@@ -35,7 +36,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(process.cwd(), 'dist'),
-        publicPath: '/public'
+        publicPath: '/'
     },
     plugins: [
         ...plugins,
