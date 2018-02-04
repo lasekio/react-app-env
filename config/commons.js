@@ -2,7 +2,7 @@ const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
 const customVendors = packageInfo.reactAppConfig && packageInfo.reactAppConfig.vendors || [];
 
-export const vendors = Array.from(new Set([ // Unique
+const vendors = Array.from(new Set([ // Unique
     'webpack/hot/only-dev-server',
     'webpack-dev-server/client?http://localhost:8080',
     'react-dom',
@@ -10,3 +10,7 @@ export const vendors = Array.from(new Set([ // Unique
     'react',
     ...customVendors,
 ]));
+
+module.exports = {
+    vendors,
+};
