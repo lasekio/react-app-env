@@ -1,6 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-const AppClient = require(_REACT_ENV_APP_ENTRYPOINT).default;
+const render = () => {
+    const Component = require(_REACT_ENV_APP_ENTRYPOINT).default;
 
-ReactDOM.render(<AppClient/>, document.getElementById('main'));
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById('main')
+    )
+};
+
+render();
+
+if (module.hot) {
+    module.hot.accept('./app/App', () => { render() })
+}
