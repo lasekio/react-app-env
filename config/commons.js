@@ -1,3 +1,5 @@
+const path = require('path');
+
 const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
 const customVendors = packageInfo.reactAppConfig && packageInfo.reactAppConfig.vendors || [];
