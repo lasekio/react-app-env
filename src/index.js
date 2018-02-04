@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hot } from 'react-hot-loader';
-import App from "./App";
 
-ReactDOM.render(<App/>, document.getElementById('main'));
+const AppClient = require(_REACT_ENV_APP_ENTRYPOINT).default;
+
+ReactDOM.render(<AppClient/>, document.getElementById('main'));
