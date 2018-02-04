@@ -26,7 +26,7 @@
     "null-loader": "^0.1.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-hot-loader": "^3.0.0-beta.7",
+    "react-hot-loader": "^4.0.0-beta.19",
     "style-loader": "^0.20.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.8.2",
