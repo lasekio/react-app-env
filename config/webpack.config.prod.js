@@ -21,7 +21,7 @@ plugins = [
 
 module.exports = {
     entry: {
-        app: ['babel-polyfill', path.resolve(__dirname, '../src/index.js')],
+        app: [path.resolve(__dirname, '../src/index.js')],
     },
     output: {
         filename: '[name].[hash].js',
