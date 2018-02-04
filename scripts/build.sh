@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 webpack --config $ENV/config/webpack.config.prod.js -p
