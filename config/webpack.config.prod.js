@@ -5,6 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const packageInfo = require(path.join(process.cwd(), 'package.json'));
+import { vendors } from "./commons";
 
 let plugins = [];
 
@@ -21,6 +22,7 @@ plugins = [
 
 module.exports = {
     entry: {
+        vendors,
         app: [path.resolve(__dirname, '../src/index.js')],
     },
     output: {
