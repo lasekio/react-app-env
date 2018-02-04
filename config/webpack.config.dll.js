@@ -3,7 +3,7 @@ const webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
-import { vendors } from "./commons";
+const vendors = require("./commons").vendors;
 
 module.exports = {
     devtool: 'inline-source-map',
