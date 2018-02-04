@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-
-
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 

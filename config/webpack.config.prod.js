@@ -17,7 +17,7 @@ plugins = [
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: [path.resolve(__dirname, '../src/index.js')],
     },
     output: {
         filename: '[name].[hash].js',
