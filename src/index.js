@@ -16,6 +16,7 @@ const render = () => {
 render();
 
 if (module.hot) {
-    console.log('accepting', _REACT_ENV_APP_ENTRYPOINT);
-    module.hot.accept(_REACT_ENV_APP_ENTRYPOINT, () => { render() })
+    const entry = _REACT_ENV_APP_ENTRYPOINT;
+    console.log('accepting', entry);
+    module.hot.accept(entry, () => { render() })
 }
