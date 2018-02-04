@@ -4,6 +4,7 @@ const webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
 let plugins = [];
 
@@ -12,6 +13,9 @@ plugins = [
     new AddAssetHtmlPlugin(
         { filepath: path.join(process.cwd(), 'dist', '*.css'), typeOfAsset: 'css', includeSourcemap: false  }
     ),
+    new webpack.DefinePlugin({
+        _REACT_ENV_APP_ENTRYPOINT: JSON.stringify(packageInfo.main),
+    }),
     new ExtractTextPlugin("[name]_[hash].css"),
 ];
 
