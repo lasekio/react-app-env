@@ -32,10 +32,7 @@ module.exports = {
     devtool: 'inline-source-map',
     cache: true,
     entry: {
-        app: [
-            'react-hot-loader/patch',
-            path.resolve(__dirname, '../src/index.js')
-        ],
+        app: [path.resolve(__dirname, '../src/index.js')],
     },
     output: {
         filename: '[name].js',
