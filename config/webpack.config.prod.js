@@ -28,6 +28,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
+    resolve: { modules: [ process.cwd(), 'node_modules' ]},
     plugins: plugins,
     module: {
         rules: [
