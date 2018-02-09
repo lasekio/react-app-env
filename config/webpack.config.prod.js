@@ -26,7 +26,7 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(process.cwd(), 'dist'),
-        publicPath: ''
+        publicPath: '/public/'
     },
     resolve: { modules: [ process.cwd(), 'node_modules' ]},
     plugins: plugins,
@@ -41,7 +41,14 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/,
-                use: ['file-loader']
+                use: [{
+                    loadeR: 'file-loader',
+                    options: {
+                        publicPath: function(url) {
+                            return url.replace(/public/, '')
+                        },
+                    },
+                }],
             },
             {
                 test: /\.js$/,
