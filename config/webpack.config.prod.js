@@ -42,7 +42,7 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/,
                 use: [{
-                    loadeR: 'file-loader',
+                    loader: 'file-loader',
                     options: {
                         publicPath: function(url) {
                             return url.replace(/public/, '')
