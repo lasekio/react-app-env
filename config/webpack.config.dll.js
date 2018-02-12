@@ -1,23 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 const packageInfo = require(path.join(process.cwd(), 'package.json'));
 
-const customVendors = packageInfo.reactAppConfig && packageInfo.reactAppConfig.vendors || [];
+const vendors = require("./commons").vendors;
 
 module.exports = {
     devtool: 'inline-source-map',
-    entry: {
-        vendors: Array.from(new Set([ // Unique
-            'webpack/hot/only-dev-server',
-            'webpack-dev-server/client?http://localhost:8080',
-            'react-dom',
-            'react-hot-loader',
-            'react',
-            ...customVendors,
-        ])),
-    },
+    entry: { vendors },
     output: {
         filename: '[name]_[hash].dll.js',
         library: '[name]_[hash]',
