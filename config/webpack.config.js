@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
@@ -31,7 +30,7 @@ module.exports = {
     devtool: 'inline-source-map',
     cache: true,
     entry: {
-        app: [path.resolve(__dirname, '../src/index.js')],
+        app: [path.resolve(process.cwd(), packageInfo.main)],
     },
     output: {
         filename: '[name].js',
@@ -52,6 +51,7 @@ module.exports = {
     ],
     devServer: {
         hot: true,
+        port: (packageInfo.reactAppConfig || {}).devServerPort || 8080,
         historyApiFallback: true,
         contentBase: "./dist",
     },
@@ -83,5 +83,5 @@ module.exports = {
             }
         ],
     },
-    resolve: { modules: [ process.cwd(), 'node_modules' ]},
+    resolve: { modules: [ process.cwd(), path.dirname(process.cwd() + packageInfo.main), 'node_modules' ]},
 };
