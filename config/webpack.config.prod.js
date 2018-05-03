@@ -40,7 +40,7 @@ module.exports = {
                 }),
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf|png|svg)$/,
+                test: /\.(woff|woff2|eot|ttf|otf|png|svg|gif)$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
